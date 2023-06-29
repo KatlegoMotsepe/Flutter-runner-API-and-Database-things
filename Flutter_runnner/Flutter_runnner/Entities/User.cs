@@ -12,8 +12,6 @@ namespace Flutter_runnner
         private User user;
         private IConfiguration configeration;
 
-
-
         [Key]
         public int Id { get; set; }
 
@@ -33,12 +31,7 @@ namespace Flutter_runnner
         [StringLength(10)]
         public string Password { get; set; }
 
-        public bool deleted { get; set; }
-
-        public byte[] passwordHash { get; set; }
-
-        public byte[] passwordSalt { get; set; }
-
+       
         public User(User_register_DTOs user, IConfiguration configeration)
         {
             Name = user.name;
@@ -46,34 +39,7 @@ namespace Flutter_runnner
             Email = user.email;
             Password = user.password;
         }
-        public void HashPassword(string password, IConfiguration config)
-        {
-            using var hmac = new HMACSHA512();
-            passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password + config));
-            passwordSalt = hmac.Key;
-        }
-
-        public bool PasswordValidation(string password, IConfiguration config)
-        {
-            using var hmac = new HMACSHA512(passwordSalt);
-
-            var newHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password + config));
-
-            if (newHash.Length != passwordHash.Length)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < newHash.Length; i++)
-            {
-                if (newHash[i] != passwordHash[i])
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+       
 
     
     public User() { }

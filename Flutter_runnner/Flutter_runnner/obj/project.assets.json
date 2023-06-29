@@ -8404,11 +8404,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BV-PC1\\source\\repos\\Flutter_runnner\\Flutter_runnner\\Flutter_runnner.csproj",
+      "projectUniqueName": "C:\\Users\\BV-PC1\\Documents\\GitHub\\Flutter-runner-API-and-Database-things\\Flutter_runnner\\Flutter_runnner\\Flutter_runnner.csproj",
       "projectName": "Flutter_runnner",
-      "projectPath": "C:\\Users\\BV-PC1\\source\\repos\\Flutter_runnner\\Flutter_runnner\\Flutter_runnner.csproj",
+      "projectPath": "C:\\Users\\BV-PC1\\Documents\\GitHub\\Flutter-runner-API-and-Database-things\\Flutter_runnner\\Flutter_runnner\\Flutter_runnner.csproj",
       "packagesPath": "C:\\Users\\BV-PC1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BV-PC1\\source\\repos\\Flutter_runnner\\Flutter_runnner\\obj\\",
+      "outputPath": "C:\\Users\\BV-PC1\\Documents\\GitHub\\Flutter-runner-API-and-Database-things\\Flutter_runnner\\Flutter_runnner\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BV-PC1\\AppData\\Roaming\\NuGet\\NuGet.Config",
