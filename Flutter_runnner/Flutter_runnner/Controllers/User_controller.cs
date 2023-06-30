@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Flutter_runnner.DTOs;
+using Flutter_runnner.Interfaces;
+using static Org.BouncyCastle.Math.EC.ECCurve;
+using System.Data.Entity;
 
 namespace Flutter_runnner.Controllers
 {
@@ -11,52 +14,80 @@ namespace Flutter_runnner.Controllers
     {
 
 
+        private readonly ITokenService tokenService;
         private readonly IConfiguration configeration;
-        public User_controller(IConfiguration config)
+        public User_controller(IConfiguration config, ITokenService _tokenService)
+        {
+            tokenService = _tokenService;
+             configeration = config;
+        }
+       
+        [HttpPost("registerUser")]
+
+        public async Task<IActionResult> ResgisterUser(User_register_DTOs user)
         {
 
-            configeration = config;
-        }
-        [HttpGet("loginUser/{id}")]
+            try
+            {
+                using var db = new DataContext();
 
-        public async Task<ActionResult> LoginUser(User_Login_DTOs user)
+                var dbUser = await db.Users.FirstOrDefaultAsync(x => x.Email == user.email);
+
+                if (dbUser != null)
+                {
+                    return BadRequest("This email is attached to an account");
+                }
+
+                await db.Users.AddAsync(new User(user, configeration));
+
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return Ok(user + " has been added");
+
+        }
+
+        [HttpPost("login")]
+
+        public async Task<ActionResult> LoginUser(User_Login_DTOs user_)
         {
             using var db = new DataContext();
 
-            var dbUser = await db.Users.FirstOrDefaultAsync(x => x.Email == user.email);
-
-            if (dbUser == null)
+            var user = await db.Users.FirstOrDefaultAsync( x => x.Email == user_.email);
+             
+            if (user == null)
             {
                 return BadRequest("Invalid credentials");
             }
 
-        
+            if (user.Password == null)
+            {
+                return BadRequest("Password invalid");
+            }
 
-            if (user.password == null) { return BadRequest("Invalid credentials"); }
+            if (user.Password == null) return BadRequest("Invalid credentials");
+            var test = user.PasswordValidation(user_.password, configeration);
 
-      
+            if (test)
+            {
+         
+                await db.SaveChangesAsync();
 
+                //Will send JWT Token
+                return Ok(new User_DTO
+                {
+                    User = user.Name + " " + user.Surname,
+                    Token = tokenService.CreateToken(user)
+                });
+            }
             await db.SaveChangesAsync();
 
             return BadRequest("Invalid credentials");
         }
 
-        [HttpPost("registerUser")]
-
-        public async Task<IActionResult> ResgisterUser(User_register_DTOs user)
-        {
-            using var db = new DataContext();
-            var dbUser = await db.Users.FirstOrDefaultAsync(x => x.Email == user.email);
-            if (dbUser == null) { return BadRequest("This email is attached to an account"); }
-            await db.Users.AddAsync(new User(user, configeration));
-            await db.SaveChangesAsync();
-            return Ok(user + " has been added");
-
-
-        }
+    
     }
-
-
-
-
 }
