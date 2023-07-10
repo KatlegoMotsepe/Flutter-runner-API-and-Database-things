@@ -1,6 +1,7 @@
 ﻿using Flutter_runnner.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 namespace Flutter_runnner.Controllers
 {
@@ -20,22 +21,16 @@ namespace Flutter_runnner.Controllers
         }
 
         [HttpGet("getHistory")]
-        public async Task<ActionResult> History(History_page_DOTs history_Page)
+        public async Task<ActionResult<History_page_DOTs>> History(int id )
         {
+            using var db = new DataContext();
 
-            try
-            {
-                var entries =  _dataContext.Entries.ToListAsync();
-                if (entries == null)
-                {
-                    return StatusCode(404, "No entries found");
-                }
-                return Ok(entries);
+            var dbEntries = await db.Entries.SingleOrDefaultAsync(x => x.entry_id == id);
+
+            if (dbEntries == null) { 
+                return BadRequest("Entries Not Found"); 
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
 
         }
 

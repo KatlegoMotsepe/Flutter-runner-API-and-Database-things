@@ -88,6 +88,31 @@ namespace Flutter_runnner.Controllers
             return BadRequest("Invalid credentials");
         }
 
-    
+        [Authorize]
+        [HttpGet("GetUser/{id}")]
+        public async Task<ActionResult<UserUpdate_DTO>> GetUser(int id)
+        {
+            using var db = new DataContext();
+
+            var dbUser = await db.Users.SingleOrDefaultAsync(x => x.id == id);
+
+            if (dbUser == null)
+            {
+                return BadRequest("User Not Found");
+            }
+
+            var users = await db.Users.OrderBy(x => x.Name).ToListAsync();
+
+            var userUpdateDto = new UserUpdate_DTO
+            {
+                id = dbUser.id,
+                name = dbUser.Name,
+                surname = dbUser.Surname,
+               
+            };
+
+            return Ok(userUpdateDto);
+        }
+
     }
 }

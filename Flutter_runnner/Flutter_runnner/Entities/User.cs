@@ -14,7 +14,8 @@ namespace Flutter_runnner
         private IConfiguration configeration;
 
         [Key]
-        public Guid id { get; set; }
+        public int id { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Name { get; set; }

@@ -4,6 +4,7 @@ using Flutter_runnner.Interfaces;
 
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddDbContext<DataContext>(o => o.UseSqlServer());   
 
 var app = builder.Build();
 DataContext.init();

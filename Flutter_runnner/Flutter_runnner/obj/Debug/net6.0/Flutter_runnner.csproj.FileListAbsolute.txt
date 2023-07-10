@@ -209,7 +209,6 @@ C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_
 C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\runtimes\linux-musl-arm\native\libe_sqlite3.so
 C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\runtimes\linux-musl-arm64\native\libe_sqlite3.so
 C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\runtimes\linux-musl-x64\native\libe_sqlite3.so
-C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\runtimes\linux-ppc64le\native\libe_sqlite3.so
 C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\runtimes\linux-s390x\native\libe_sqlite3.so
 C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\runtimes\linux-x64\native\libe_sqlite3.so
 C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\runtimes\linux-x86\native\libe_sqlite3.so
@@ -258,3 +257,4 @@ C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_
 C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
 C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\BV-PC1\Documents\GitHub\Flutter-runner-API-and-Database-things\Flutter_runnner\Flutter_runnner\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
