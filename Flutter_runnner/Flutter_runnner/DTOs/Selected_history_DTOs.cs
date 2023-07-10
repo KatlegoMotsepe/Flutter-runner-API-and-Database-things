@@ -3,7 +3,7 @@
     public class Selected_history_DTOs
     {
 
-        public byte[] map { get; set; }
+    
 
         public float top_speed { get; set; }
 
@@ -13,7 +13,7 @@
 
         public DateTime duration { get; set; }
         
-            public float average_pace { get; set; }
+        public float average_pace { get; set; }
 
 
 

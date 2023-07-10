@@ -21,17 +21,17 @@ namespace Flutter_runnner.Controllers
         }
 
         [HttpGet("getHistory")]
-        public async Task<ActionResult<History_page_DOTs>> History(int id )
+        public async Task<ActionResult<History_page_DOTs>> History(History_page_DOTs inputUser)
         {
             using var db = new DataContext();
 
-            var dbEntries = await db.Entries.SingleOrDefaultAsync(x => x.entry_id == id);
+            //var dbEntries = await db.Entries.SingleOrDefaultAsync(x => x.entry_id == id);
 
-            if (dbEntries == null) { 
-                return BadRequest("Entries Not Found"); 
-            }
+            List<double> ks = new List<double>();
 
+            ks.Add(inputUser.points);
 
+            return Ok("");
         }
 
 

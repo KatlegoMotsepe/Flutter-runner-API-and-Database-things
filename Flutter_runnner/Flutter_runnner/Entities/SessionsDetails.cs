@@ -16,7 +16,7 @@ namespace Flutter_runnner
         [Required]
         public DateTime duration { get; set; }
         [Required]
-        public byte[] map { get; set; }
+        public double points { get; set; } // Change to list of points
 
        
     }
