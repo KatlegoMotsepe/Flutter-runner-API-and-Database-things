@@ -51,7 +51,7 @@ namespace Flutter_runnner.Controllers
                 }
                 return Ok(selected_History);
             }catch (Exception ex)
-            {
+            { 
                 return BadRequest(ex.Message);   
             }
         }
